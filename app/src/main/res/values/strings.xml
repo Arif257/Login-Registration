@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Authentication</string>
+    <string name="full_name">FULL NAME</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+    <string name="register">REGISTER</string>
+</resources>
