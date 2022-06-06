@@ -6,31 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".view.RegisterActivity">
 
-    <RelativeLayout
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#80000000"
-        android:clickable="true"
-
-        android:elevation="100dp"
-        android:focusable="true">
-
-        <ProgressBar
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_centerInParent="true"
-            android:elevation="100dp"
-            android:indeterminate="true" />
-
-    </RelativeLayout>
-
-
     <com.google.android.material.card.MaterialCardView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
         app:cardCornerRadius="0dp"
         app:cardElevation="8dp"
         app:strokeColor="@color/black"
@@ -41,23 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fullNameTil"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fullNameEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:hint="@string/full_name"
-                    android:inputType="text"
-                    android:padding="8dp"
-                    android:paddingVertical="12dp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailTil"
@@ -97,35 +62,49 @@
                     android:paddingVertical="12dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cPasswordTil"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cPasswordEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/confirm_password"
-                    android:inputType="text"
-                    android:maxLength="15"
-                    android:padding="8dp"
-                    android:paddingVertical="12dp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/registerBt"
+                android:id="@+id/loginBtn"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="12dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="@string/register" />
+                android:text="@string/login" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loginWithGoogleBt"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/google"
+                app:icon="@drawable/google"
+                app:iconTint="@null" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/newUser" />
+
+                <TextView
+                    android:id="@+id/registerBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="@string/registration"
+                    android:textColor="#1B07C8" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.authentication.data.LoginBody
 import com.example.authentication.data.RegisterBody
 import com.example.authentication.data.User
 import com.example.authentication.data.ValidateEmailBody
@@ -13,7 +14,7 @@ import com.example.authentication.utils.AuthToken
 import com.example.authentication.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class RegisterActivityViewModel(val authRepository: AuthRepository, val application: Application) :
+class LoginActivityViewModel(val authRepository: AuthRepository, val application: Application) :
     ViewModel() {
     private var isLoading: MutableLiveData<Boolean> =
         MutableLiveData<Boolean>().apply { value = false }
@@ -24,34 +25,13 @@ class RegisterActivityViewModel(val authRepository: AuthRepository, val applicat
 
     fun getIsLoading(): LiveData<Boolean> = isLoading
     fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
-    fun getIsUniqueEmail(): LiveData<Boolean> = isUniqueEmail
     fun getUser(): LiveData<User> = user
 
-    fun validateEmailAddress(body: ValidateEmailBody) {
+
+
+    fun loginUser(body: LoginBody) {
         viewModelScope.launch {
-            authRepository.validateEmailAddress(body).collect() {
-                when (it) {
-                    is RequestStatus.Waiting -> {
-                        isLoading.value = true
-                    }
-                    is RequestStatus.Success -> {
-                        isLoading.value = false
-                        isUniqueEmail.value = it.data.isUnique
-                    }
-                    is RequestStatus.Error -> {
-                        isLoading.value = false
-                        errorMessage.value = it.message
-
-                    }
-                }
-            }
-        }
-
-    }
-
-    fun registerUser(body: RegisterBody) {
-        viewModelScope.launch {
-            authRepository.registerUser(body).collect() {
+            authRepository.loginUser(body).collect() {
                 when (it) {
                     is RequestStatus.Waiting -> {
                         isLoading.value = true
